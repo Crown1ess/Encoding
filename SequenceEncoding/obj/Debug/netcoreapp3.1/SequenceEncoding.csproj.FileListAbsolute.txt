@@ -15,7 +15,9 @@ C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Debug\netcorea
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Debug\netcoreapp3.1\SequenceEncoding.g.resources
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Debug\netcoreapp3.1\SequenceEncoding.AssemblyInfoInputs.cache
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Debug\netcoreapp3.1\SequenceEncoding.AssemblyInfo.cs
-C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Debug\netcoreapp3.1\SequenceEncoding.csproj.CoreCompileInputs.cache
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Debug\netcoreapp3.1\SequenceEncoding.dll
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Debug\netcoreapp3.1\SequenceEncoding.pdb
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Debug\netcoreapp3.1\SequenceEncoding.genruntimeconfig.cache
+C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll
+C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Debug\netcoreapp3.1\SequenceEncoding.csproj.CoreCompileInputs.cache
+C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Debug\netcoreapp3.1\SequenceEncoding.csproj.CopyComplete
