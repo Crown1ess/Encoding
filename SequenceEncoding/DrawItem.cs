@@ -9,6 +9,5 @@ namespace SequenceEncoding
     {
         public System.Drawing.Point From { get; set; }
         public System.Drawing.Point To { get; set; } 
-        public int Width { get; set; }
     }
 }

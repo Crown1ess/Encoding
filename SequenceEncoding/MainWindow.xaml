@@ -12,48 +12,65 @@
             <Rectangle Margin="0,0,-1,0">
                 <Rectangle.Fill>
                     <LinearGradientBrush>
-                        <GradientStop Color="#FF4A6D" Offset="0.5"/>
-                        <GradientStop Color="#FF3A6D" />
-                        <GradientStop Color="#FF1A6D" Offset="1"/>
+                        <GradientStop Color="#5879DB" Offset="0.5"/>
+                        <GradientStop Color="#2F4175" />
+                        <GradientStop Color="#6287F5" Offset="1"/>
 
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
-            <Label Content="Main Action" Height="40" Width="140" Margin="330,50,330,360"/>
-            <Label Content="Diagram" Margin="535,92,155,318" Height="40" Width="110"/>
-            <ItemsControl ItemsSource="{Binding Drawing}" Margin="318,137,10,84" Height="200" Width="350">
-                
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <Canvas x:Name="Graphic" VerticalAlignment="Center" Height="200" Width="350"
-                                Background="White" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Line X1="{Binding From.X}" Y1="{Binding From.Y}"
-                              X2="{Binding To.X}" Y2="{Binding To.Y}" Stroke="Black" StrokeThickness="2">
-                            </Line>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-           
-            
+            <Label Content="Main Action" Height="40" Width="140" Margin="330,44,330,366"/>
+            <Label Content="Diagram" Margin="712,225,-22,185" Height="40" Width="110" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90.249"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
 
-            <StackPanel Orientation="Vertical" Height="350">
-                <StackPanel Orientation="Horizontal" Height="auto" Margin="20 100 0 0" Width="350" HorizontalAlignment="Left">
-                    <Label Content="Decimal Code"/>
-                    <TextBox x:Name="DecimalCodeBox"  Margin="10 0 0 0" Text="{Binding DecimalString}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Height="auto" Margin="20 75 0 0" Width="350" HorizontalAlignment="Left">
-                    <Label Content="Binary Code"/>
-                    <TextBox x:Name="BinaryCodeBox"  Margin="25 0 0 0" Text="{Binding BinaryString}"/>
-                </StackPanel>
+            <Grid Height="100" Width="350" Margin="396,196,54,154">
+                <ScrollViewer Height="100" Width="auto" VerticalScrollBarVisibility="Disabled"
+                          HorizontalScrollBarVisibility="Auto" CanContentScroll="False" >
+                    <ItemsControl ItemsSource="{Binding Drawing}" Height="100">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Canvas x:Name="Graphic" VerticalAlignment="Center" Height="200" Width="{Binding CanvasWidth}"
+                                Background="#328EA8"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Line X1="{Binding From.X}" Y1="{Binding From.Y}"
+                              X2="{Binding To.X}" Y2="{Binding To.Y}" Stroke="LightGoldenrodYellow" StrokeThickness="2">
+                                </Line>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" Height="40" Margin="-3,144,0,266" Width="770" HorizontalAlignment="Left">
+                <Label Content="Decimal Code"/>
+                <TextBox x:Name="DecimalCodeBox" HorizontalContentAlignment="Left" Margin="10 0 0 0" Text="{Binding DecimalString}"
+                         Width="700"/>
             </StackPanel>
-            <Button Content="Action" Height="40" Width="100" Margin="376,364,324,46" Command="{Binding ExecuteConversion}"
-                    FontWeight="Bold"/>
-            <RadioButton Height="50" Margin="49,354,598,46" Content="Not return to zero" RenderTransformOrigin="0.439,0.58"/>
-            <RadioButton Height="50" Content="Bipolar Pulse Coding" Margin="49,334,598,66"/>
+
+            <StackPanel Orientation="Horizontal" Height="40" Width="790" HorizontalAlignment="Left" Margin="0,310,0,100">
+                <Label Content="Binary Code"/>
+                <TextBox x:Name="BinaryCodeBox" Width="620" Margin="25 0 0 0" Text="{Binding BinaryString}"
+                         HorizontalContentAlignment="Left"/>
+            </StackPanel>
+
+            <Button Content="Трах тибидох-тибидох" Height="40" Margin="376,364,266,46"
+                    Command="{Binding ExecuteConversion}"
+                    FontWeight="Bold" Background="#328EA8" Foreground="LightGoldenrodYellow"/>
+            <RadioButton x:Name="NPZ" Height="30" Margin="163,260,484,160" Content="Not return to zero" 
+                         RenderTransformOrigin="0.439,0.58" IsChecked="{Binding SelectedNRZ}" GroupName="Encoding"/>
+            <RadioButton x:Name="BPC" Height="30" Content="Bipolar Pulse Coding" Margin="163,200,484,200"
+                          GroupName="Encoding" IsChecked="{Binding SelectedBPC}"/>
         </Grid>
     </Grid>
 </Window>

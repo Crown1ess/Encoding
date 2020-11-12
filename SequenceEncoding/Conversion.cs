@@ -19,15 +19,16 @@ namespace SequenceEncoding
 
         private int tempX;
         private int tempY;
-        private int width;
 
-        public int Width
+        private int canvasWidth = 350;
+
+        public int CanvasWidth
         {
-            get { return width; }
+            get { return canvasWidth; }
             set
             { 
-                width = value;
-                OnPropertyChanged("Width");
+                canvasWidth = value;
+                OnPropertyChanged("CanvasWidth");
             }
         }
 
@@ -55,6 +56,34 @@ namespace SequenceEncoding
             }
         }
 
+        private string selectedNRZ;
+
+        public string SelectedNRZ
+        {
+            get { return selectedNRZ; }
+            set 
+            { 
+                if(value != null)
+                    selectedNRZ = value;
+                OnPropertyChanged("SelectedNRZ");
+            }
+        }
+
+        private string selectedBPC;
+
+        public string SelectedBPC
+        {
+            get { return selectedBPC; }
+            set
+            { 
+                selectedBPC = value;
+                OnPropertyChanged("SelectedBPC");
+
+            }
+        }
+
+
+
         public List<string> BinaryCup;
 
         private RelayCommand executeConversion;
@@ -69,13 +98,30 @@ namespace SequenceEncoding
                         if (decimalString == null || decimalString == "")
                         {
                            
-                            MessageBox.Show("You didn't enter text to Decimal Code box. Please try again!", "Display error", MessageBoxButton.OK);
+                            MessageBox.Show("You didn't enter text to Decimal Code box. Please try again!", "Display", MessageBoxButton.OK);
                         }
                         else
                         {
                             makeConversion();
                             getBinaryCup();
-                            someMethod();
+
+                            if(selectedNRZ == "True")
+                            {
+                                drawingNRZ();
+                            }
+                            else if(selectedBPC == "True")
+                            {
+                                drawingBipolarPulseCoding();
+                            }
+                            else
+                            {
+                                MessageBox.Show("You didn't choose encoding variants, please try again", "Display", MessageBoxButton.OK);
+
+                            }
+                            //drawingBipolarPulseCoding();
+                            //drawingNRZ();
+                            MessageBox.Show(selectedBPC + " | | " + selectedNRZ , "Display");
+
                         }
                     }));
             }
@@ -97,7 +143,7 @@ namespace SequenceEncoding
                 }
             }
         }
-        private void someMethod()
+        private void drawingNRZ()
         {
             tempX = 0;
             tempY = 100;
@@ -158,6 +204,131 @@ namespace SequenceEncoding
                     });
                 }
             }
+            if (tempX > 350)
+                CanvasWidth = tempX;
+        }
+        private void drawingBipolarPulseCoding()
+        {
+            tempX = 0;
+            tempY = 100;
+
+            Drawing.Clear();
+
+            Drawing.Add(new DrawItem
+            {
+                From = new System.Drawing.Point(tempX, tempY),
+                To = new System.Drawing.Point(tempX += 6, tempY)
+            });
+            Drawing.Add(new DrawItem
+            {
+                From = new System.Drawing.Point(tempX, tempY),
+                To = new System.Drawing.Point(tempX, tempY -= 10)
+            });
+            Drawing.Add(new DrawItem
+            {
+                From = new System.Drawing.Point(tempX, tempY),
+                To = new System.Drawing.Point(tempX += 10, tempY)
+            });
+
+            for (int i = 1; i < BinaryCup.Count; i++)
+            {
+                if (BinaryCup[i] == "0" && BinaryCup[i - 1] == "0")
+                {
+                    Drawing.Add(new DrawItem
+                    {
+                        From = new System.Drawing.Point(tempX, tempY),
+                        To = new System.Drawing.Point(tempX, tempY+=10)
+                    });
+                    Drawing.Add(new DrawItem
+                    {
+                        From = new System.Drawing.Point(tempX, tempY),
+                        To = new System.Drawing.Point(tempX+=6, tempY)
+                    });
+                    Drawing.Add(new DrawItem
+                    {
+                        From = new System.Drawing.Point(tempX, tempY),
+                        To = new System.Drawing.Point(tempX, tempY-=10)
+                    });
+                    Drawing.Add(new DrawItem
+                    {
+                        From = new System.Drawing.Point(tempX, tempY),
+                        To = new System.Drawing.Point(tempX+=12, tempY)
+                    });
+
+                }
+                else if (BinaryCup[i] == "0" && BinaryCup[i - 1] == "1")
+                {
+                    Drawing.Add(new DrawItem
+                    {
+                        From = new System.Drawing.Point(tempX, tempY),
+                        To = new System.Drawing.Point(tempX, tempY += 10)
+                    });
+                    Drawing.Add(new DrawItem
+                    {
+                        From = new System.Drawing.Point(tempX, tempY),
+                        To = new System.Drawing.Point(tempX += 6, tempY)
+                    });
+                    Drawing.Add(new DrawItem
+                    {
+                        From = new System.Drawing.Point(tempX, tempY),
+                        To = new System.Drawing.Point(tempX, tempY -= 10)
+                    });
+                    Drawing.Add(new DrawItem
+                    {
+                        From = new System.Drawing.Point(tempX, tempY),
+                        To = new System.Drawing.Point(tempX += 12, tempY)
+                    });
+                }
+                else if (BinaryCup[i] == "1" && BinaryCup[i - 1] == "1")
+                {
+                    Drawing.Add(new DrawItem
+                    {
+                        From = new System.Drawing.Point(tempX, tempY),
+                        To = new System.Drawing.Point(tempX, tempY -= 10)
+                    });
+                    Drawing.Add(new DrawItem
+                    {
+                        From = new System.Drawing.Point(tempX, tempY),
+                        To = new System.Drawing.Point(tempX += 6, tempY)
+                    });
+                    Drawing.Add(new DrawItem
+                    {
+                        From = new System.Drawing.Point(tempX, tempY),
+                        To = new System.Drawing.Point(tempX, tempY += 10)
+                    });
+                    Drawing.Add(new DrawItem
+                    {
+                        From = new System.Drawing.Point(tempX, tempY),
+                        To = new System.Drawing.Point(tempX += 12, tempY)
+                    });
+                }
+                else if (BinaryCup[i] == "1" && BinaryCup[i - 1] == "0")
+                {
+                    Drawing.Add(new DrawItem
+                    {
+                        From = new System.Drawing.Point(tempX, tempY),
+                        To = new System.Drawing.Point(tempX, tempY -= 10)
+                    });
+                    Drawing.Add(new DrawItem
+                    {
+                        From = new System.Drawing.Point(tempX, tempY),
+                        To = new System.Drawing.Point(tempX += 6, tempY)
+                    });
+                    Drawing.Add(new DrawItem
+                    {
+                        From = new System.Drawing.Point(tempX, tempY),
+                        To = new System.Drawing.Point(tempX, tempY += 10)
+                    });
+                    Drawing.Add(new DrawItem
+                    {
+                        From = new System.Drawing.Point(tempX, tempY),
+                        To = new System.Drawing.Point(tempX += 12, tempY)
+                    });
+                }
+            }
+            if(tempX > 350)
+                CanvasWidth = tempX;
+                
         }
         private void makeConversion()
         {
