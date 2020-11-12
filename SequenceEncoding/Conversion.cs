@@ -118,10 +118,6 @@ namespace SequenceEncoding
                                 MessageBox.Show("You didn't choose encoding variants, please try again", "Display", MessageBoxButton.OK);
 
                             }
-                            //drawingBipolarPulseCoding();
-                            //drawingNRZ();
-                            MessageBox.Show(selectedBPC + " | | " + selectedNRZ , "Display");
-
                         }
                     }));
             }
