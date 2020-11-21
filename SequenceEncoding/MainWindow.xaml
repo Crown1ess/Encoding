@@ -64,7 +64,7 @@
                          HorizontalContentAlignment="Left"/>
             </StackPanel>
 
-            <Button Content="Трах тибидох-тибидох" Height="40" Margin="376,364,266,46"
+            <Button Content="Execute" Height="40" Margin="376,364,266,46"
                     Command="{Binding ExecuteConversion}"
                     FontWeight="Bold" Background="#328EA8" Foreground="LightGoldenrodYellow"/>
             <RadioButton x:Name="NPZ" Height="30" Margin="163,260,484,160" Content="Not return to zero" 

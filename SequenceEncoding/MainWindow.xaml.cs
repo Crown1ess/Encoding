@@ -12,7 +12,7 @@ namespace SequenceEncoding
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new Conversion(); 
+            DataContext = new ConversionVM(); 
         }
     }
 }

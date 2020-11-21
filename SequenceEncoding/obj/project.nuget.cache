@@ -1,11 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "J5NW8KRN1jyab5q2ndfh9pic66+OO3jbCT+Kcg5mBEtgZa8IQB6LVI/5NUh3V0b5gnuWL/CQgrEIMzvPLjq01g==",
+  "dgSpecHash": "+cGBUIeeoZdoYAQ852XVZkMxrExpxbbKDBbpGsjPwryn9e+9yl6MDI+P2TlUy4ObGRxCFxo/cFQO/r+Y8LSqVQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\davae\\source\\repos\\SequenceEncoding\\SequenceEncoding\\SequenceEncoding.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\davae\\.nuget\\packages\\documentformat.openxml\\2.11.3\\documentformat.openxml.2.11.3.nupkg.sha512",
-    "C:\\Users\\davae\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512"
+    "C:\\Users\\davae\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512",
+    "C:\\Users\\davae\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
+    "C:\\Users\\davae\\.nuget\\packages\\microsoft.netcore.app.ref\\3.0.0\\microsoft.netcore.app.ref.3.0.0.nupkg.sha512",
+    "C:\\Users\\davae\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.0.3\\microsoft.netcore.app.host.win-x64.3.0.3.nupkg.sha512",
+    "C:\\Users\\davae\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.0.0\\microsoft.windowsdesktop.app.ref.3.0.0.nupkg.sha512"
   ],
   "logs": []
 }
