@@ -9,7 +9,7 @@
     <Grid>
 
         <Grid Height="450" Width="800">
-            <Rectangle Margin="0,0,-1,0">
+            <Rectangle Margin="0,0,-1,0" RenderTransformOrigin="0.512,0.338">
                 <Rectangle.Fill>
                     <LinearGradientBrush>
                         <GradientStop Color="#5879DB" Offset="0.5"/>
@@ -19,8 +19,7 @@
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
-            <Label Content="Main Action" Height="40" Width="140" Margin="330,44,330,366"/>
-            <Label Content="Diagram" Margin="712,225,-22,185" Height="40" Width="110" RenderTransformOrigin="0.5,0.5">
+            <Label Content="Diagram" Margin="584,131,106,279" Height="40" Width="110" RenderTransformOrigin="0.5,0.5">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -31,9 +30,13 @@
                 </Label.RenderTransform>
             </Label>
 
-            <Grid Height="100" Width="350" Margin="396,196,54,154">
+            <Grid Height="100" Width="350" Margin="255,100,195,250">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="82*"/>
+                    <ColumnDefinition Width="93*"/>
+                </Grid.ColumnDefinitions>
                 <ScrollViewer Height="100" Width="auto" VerticalScrollBarVisibility="Disabled"
-                          HorizontalScrollBarVisibility="Auto" CanContentScroll="False" >
+                          HorizontalScrollBarVisibility="Auto" CanContentScroll="False" Grid.ColumnSpan="2">
                     <ItemsControl ItemsSource="{Binding Drawing}" Height="100">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -52,25 +55,31 @@
                 </ScrollViewer>
             </Grid>
 
-            <StackPanel Orientation="Horizontal" Height="40" Margin="-3,144,0,266" Width="770" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" Height="40" Margin="10,34,0,376" Width="770" HorizontalAlignment="Left">
                 <Label Content="Decimal Code"/>
-                <TextBox x:Name="DecimalCodeBox" HorizontalContentAlignment="Left" Margin="10 0 0 0" Text="{Binding DecimalString}"
+                <TextBox x:Name="DecimalCodeBox" HorizontalContentAlignment="Left" Text="{Binding DecimalString}"
                          Width="700"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Height="40" Width="790" HorizontalAlignment="Left" Margin="0,310,0,100">
+            <StackPanel Orientation="Horizontal" Height="40" Width="790" HorizontalAlignment="Left" Margin="0,225,0,185">
                 <Label Content="Binary Code"/>
                 <TextBox x:Name="BinaryCodeBox" Width="620" Margin="25 0 0 0" Text="{Binding BinaryString}"
                          HorizontalContentAlignment="Left"/>
             </StackPanel>
 
-            <Button Content="Execute" Height="40" Margin="376,364,266,46"
+            <Button Content="Execute" Height="40" Margin="376,344,266,66"
                     Command="{Binding ExecuteConversion}"
                     FontWeight="Bold" Background="#328EA8" Foreground="LightGoldenrodYellow"/>
-            <RadioButton x:Name="NPZ" Height="30" Margin="163,260,484,160" Content="Not return to zero" 
+            <RadioButton x:Name="NPZ" Height="30" Margin="225,288,422,132" Content="Not return to zero" 
                          RenderTransformOrigin="0.439,0.58" IsChecked="{Binding SelectedNRZ}" GroupName="Encoding"/>
-            <RadioButton x:Name="BPC" Height="30" Content="Bipolar Pulse Coding" Margin="163,200,484,200"
+            <RadioButton x:Name="BPC" Height="30" Content="Bipolar Pulse Coding" Margin="79,288,568,132"
                           GroupName="Encoding" IsChecked="{Binding SelectedBPC}"/>
+            <RadioButton x:Name="AMI" Height="30" Margin="360,288,287,132" Content="Bipolar AMI" 
+                RenderTransformOrigin="0.439,0.58" IsChecked="{Binding SelectedAMI}" GroupName="Encoding"/>
+            <RadioButton x:Name="Manchester" Height="30" Margin="469,288,178,132" Content="Manchester Code" 
+                RenderTransformOrigin="0.439,0.58" IsChecked="{Binding SelectedManchester}" GroupName="Encoding"/>
+            <RadioButton x:Name="Potential" Height="30" Margin="602,288,45,132" Content="Potential 2B1Q" 
+                RenderTransformOrigin="0.439,0.58" IsChecked="{Binding Selected2B1Q}" GroupName="Encoding"/>
         </Grid>
     </Grid>
 </Window>

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 
 
@@ -14,8 +15,8 @@ namespace SequenceEncoding
         public ObservableCollection<Item> Drawing { get; private set; }
 
         BipolarPulseCoding bipolarPulseCoding;
-
         NotReturnToZero notReturnToZero;
+        BipolarAMI bipolarAMI;
 
         private int canvasWidth;
 
@@ -77,6 +78,41 @@ namespace SequenceEncoding
 
             }
         }
+        private string selectedAMI;
+
+        public string SelectedAMI
+        {
+            get { return selectedAMI; }
+            set 
+            { 
+                selectedAMI = value;
+                OnPropertyChanged("SelectedAMI");
+            }
+        }
+        private string selectedManchester;
+
+        public string SelectedManchester
+        {
+            get { return selectedManchester; }
+            set 
+            { selectedManchester = value;
+                OnPropertyChanged("SelectedManchester");
+            }
+        }
+        private string selected2B1Q;
+
+        public string  Selected2B1Q
+        {
+            get { return selected2B1Q; }
+            set 
+            { 
+                selected2B1Q = value;
+                OnPropertyChanged("Selected2B1Q");
+            }
+        }
+
+
+
         public List<string> BinaryCup;
 
         private RelayCommand executeConversion;
@@ -96,36 +132,42 @@ namespace SequenceEncoding
                         else
                         {
                             makeConversion();
-
                             getBinaryCup();
-
                             Drawing.Clear();
 
                             CanvasWidth = 350;
-                            //some method is returning null value so that doesn't work.
-                            //also add to drawing diagram/ with the startest binary code which inserted in binary code box and then it will be converted to decimal code
+                            //also add to drawing diagram with the startest binary code which inserted in binary code box and then it will be converted to decimal code
                              
                             if (selectedNRZ == "True")
                             {
                                 notReturnToZero = new NotReturnToZero();
-
+                                //Drawing NRZ diagram
                                 notReturnToZero.DrawDiagram(BinaryCup, Drawing);
                                 if (notReturnToZero.TempX > 350)
                                 {
                                     CanvasWidth = notReturnToZero.TempX;
                                 }   
-                                MessageBox.Show(canvasWidth.ToString(), "Display");
                             }
-                            else if (selectedBPC == "True")//change code at the BipolarPulseCode like a NRZ
+                            else if (selectedBPC == "True")
                             {
                                 bipolarPulseCoding = new BipolarPulseCoding();
-
+                                //Drawing BPC diagram
                                 bipolarPulseCoding.DrawDiagram(BinaryCup, Drawing);
                                 if (bipolarPulseCoding.TempX > 350)
                                 {
                                     CanvasWidth = bipolarPulseCoding.TempX;
                                 }
-                                MessageBox.Show(canvasWidth.ToString(), "Display");
+                                
+                            }
+                            else if(SelectedAMI == "True")
+                            {
+                                bipolarAMI = new BipolarAMI();
+                                //Drawing AMI diagram
+                                bipolarAMI.DrawDiagram(BinaryCup, Drawing);
+                                if(bipolarAMI.TempX > 350)
+                                {
+                                    CanvasWidth = bipolarAMI.TempX;
+                                }
                             }
                             else
                             {
@@ -141,17 +183,20 @@ namespace SequenceEncoding
             BinaryCup = new List<string>();
             Drawing = new ObservableCollection<Item>();
         }
-        private void getBinaryCup()
+        private async Task getBinaryCup()
         {
             BinaryCup.Clear();
 
-            for(int i = 0; i<BinaryString.Length; i++)
+            await Task.Run(() =>
             {
-                if(BinaryString[i] != ' ')
+                for (int i = 0; i < BinaryString.Length; i++)
                 {
-                    BinaryCup.Add(BinaryString[i].ToString());
+                    if (BinaryString[i] != ' ')
+                    {
+                        BinaryCup.Add(BinaryString[i].ToString());
+                    }
                 }
-            }
+            });  
         }
         private void makeConversion()
         {

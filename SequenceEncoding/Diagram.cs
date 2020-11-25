@@ -12,6 +12,7 @@ namespace SequenceEncoding
         public int TempY { get; set; }
         public int StepX { get; set; } = 10;
         public int StepY { get; set; } = 10;
+        public int VariableChangesToNegative = -1;
     }
     
 }

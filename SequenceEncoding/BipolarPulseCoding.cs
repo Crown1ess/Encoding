@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace SequenceEncoding
 {
@@ -23,12 +24,12 @@ namespace SequenceEncoding
 
             });
         }
-        public void DrawAlongMinusY(ObservableCollection<Item> insertInformation, int stepY)
+        public void DrawAlongY(ObservableCollection<Item> insertInformation, int stepY, int variableChangesToNegative)
         {
             insertInformation.Add(new Item
             {
                 From = new System.Drawing.Point(TempX, TempY),
-                To = new System.Drawing.Point(TempX, TempY -= stepY)
+                To = new System.Drawing.Point(TempX, TempY += (stepY*variableChangesToNegative))
 
             });
         }
@@ -36,9 +37,10 @@ namespace SequenceEncoding
         {
             TempX = 0;
             TempY = 100;
+            
 
-            DrawAlongX(finishedDiagram, StepX-4);
-            DrawAlongMinusY(finishedDiagram, StepY);
+            DrawAlongX(finishedDiagram, StepX - 4);
+            DrawAlongY(finishedDiagram, StepY, VariableChangesToNegative);
             DrawAlongX(finishedDiagram, StepX - 4);
 
             for (int i = 1; i < binaryCup.Count; i++)
@@ -47,31 +49,31 @@ namespace SequenceEncoding
                 {
                     DrawAlongY(finishedDiagram, StepY);
                     DrawAlongX(finishedDiagram, StepX - 4);
-                    DrawAlongMinusY(finishedDiagram, StepY);
+                    DrawAlongY(finishedDiagram, StepY, VariableChangesToNegative);
                     DrawAlongX(finishedDiagram, StepX + 2);
                 }
                 else if (binaryCup[i] == "0" && binaryCup[i - 1] == "1")
                 {
                     DrawAlongY(finishedDiagram, StepY);
                     DrawAlongX(finishedDiagram, StepX - 4);
-                    DrawAlongMinusY(finishedDiagram, StepY);
+                    DrawAlongY(finishedDiagram, StepY, VariableChangesToNegative);
                     DrawAlongX(finishedDiagram, StepX + 2);
                 }
                 else if (binaryCup[i] == "1" && binaryCup[i - 1] == "1")
                 {
-                    DrawAlongMinusY(finishedDiagram, StepY);
+                    DrawAlongY(finishedDiagram, StepY, VariableChangesToNegative);
                     DrawAlongX(finishedDiagram, StepX - 4);
                     DrawAlongY(finishedDiagram, StepY);
                     DrawAlongX(finishedDiagram, StepX + 2);
                 }
                 else if (binaryCup[i] == "1" && binaryCup[i - 1] == "0")
                 {
-                    DrawAlongMinusY(finishedDiagram,StepY);
-                    DrawAlongX(finishedDiagram,StepX - 4);
-                    DrawAlongY(finishedDiagram,StepY);
+                    DrawAlongY(finishedDiagram, StepY, VariableChangesToNegative);
+                    DrawAlongX(finishedDiagram, StepX - 4);
+                    DrawAlongY(finishedDiagram, StepY);
                     DrawAlongX(finishedDiagram, StepX + 2);
                 }
-            }
+            }          
         }
     }
 }

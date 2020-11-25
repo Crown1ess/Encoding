@@ -24,12 +24,12 @@ namespace SequenceEncoding
 
             });
         }
-        public void DrawAlongMinusY(ObservableCollection<Item> insertInformation, int stepY)
+        public void DrawAlongY(ObservableCollection<Item> insertInformation, int stepY, int variableChangesToNegative)
         {
             insertInformation.Add(new Item
             {
                 From = new System.Drawing.Point(TempX, TempY),
-                To = new System.Drawing.Point(TempX, TempY -= stepY)
+                To = new System.Drawing.Point(TempX, TempY += (stepY * variableChangesToNegative))
 
             });
         }
@@ -49,7 +49,7 @@ namespace SequenceEncoding
                 }
                 else if (binaryCup[i] == "0" && binaryCup[i - 1] == "1")
                 {
-                    DrawAlongMinusY(finishedDiagram, StepY);
+                    DrawAlongY(finishedDiagram, StepY);
                     DrawAlongX(finishedDiagram, StepX);
                 }
                 else if (binaryCup[i] == "1" && binaryCup[i - 1] == "1")
@@ -58,7 +58,7 @@ namespace SequenceEncoding
                 }
                 else if (binaryCup[i] == "1" && binaryCup[i - 1] == "0")
                 {
-                    DrawAlongY(finishedDiagram, StepY);
+                    DrawAlongY(finishedDiagram, StepY, VariableChangesToNegative);
                     DrawAlongX(finishedDiagram, StepX);
                 }
             }
