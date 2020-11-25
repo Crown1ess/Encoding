@@ -19,7 +19,7 @@
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
-            <Label Content="Diagram" Margin="584,131,106,279" Height="40" Width="110" RenderTransformOrigin="0.5,0.5">
+            <Label Content="Diagram" Margin="604,131,86,279" Height="40" Width="110" RenderTransformOrigin="0.5,0.5">
                 <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -30,7 +30,7 @@
                 </Label.RenderTransform>
             </Label>
 
-            <Grid Height="100" Width="350" Margin="255,100,195,250">
+            <Grid Height="100" Width="350" Margin="279,100,171,250">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="82*"/>
                     <ColumnDefinition Width="93*"/>
@@ -61,9 +61,9 @@
                          Width="700"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Height="40" Width="790" HorizontalAlignment="Left" Margin="0,225,0,185">
+            <StackPanel Orientation="Horizontal" Height="40" Width="790" HorizontalAlignment="Center" Margin="0,225,0,185">
                 <Label Content="Binary Code"/>
-                <TextBox x:Name="BinaryCodeBox" Width="620" Margin="25 0 0 0" Text="{Binding BinaryString}"
+                <TextBox x:Name="BinaryCodeBox" Width="630" Margin="25 0 0 0" Text="{Binding BinaryString}"
                          HorizontalContentAlignment="Left"/>
             </StackPanel>
 

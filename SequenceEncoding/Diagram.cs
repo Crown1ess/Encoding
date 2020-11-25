@@ -10,9 +10,11 @@ namespace SequenceEncoding
         //think about this 2 properties:
         public int TempX { get; set; }
         public int TempY { get; set; }
-        public int StepX { get; set; } = 10;
-        public int StepY { get; set; } = 10;
-        public int VariableChangesToNegative = -1;
+
+        public int StepX = 10;
+        public int StepY = 10;
+
+        public const int VariableChangesToNegative = -1;
     }
     
 }

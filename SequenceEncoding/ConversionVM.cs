@@ -17,6 +17,7 @@ namespace SequenceEncoding
         BipolarPulseCoding bipolarPulseCoding;
         NotReturnToZero notReturnToZero;
         BipolarAMI bipolarAMI;
+        ManchesterCode manchester;
 
         private int canvasWidth;
 
@@ -167,6 +168,16 @@ namespace SequenceEncoding
                                 if(bipolarAMI.TempX > 350)
                                 {
                                     CanvasWidth = bipolarAMI.TempX;
+                                }
+                            }
+                            else if(SelectedManchester == "True")
+                            {
+                                manchester = new ManchesterCode();
+                                //Drawing manchester diagram
+                                manchester.DrawDiagram(BinaryCup, Drawing);
+                                if(manchester.TempX > 350)
+                                {
+                                    CanvasWidth = manchester.TempX;
                                 }
                             }
                             else

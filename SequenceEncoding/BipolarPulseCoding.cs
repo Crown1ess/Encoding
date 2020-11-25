@@ -36,8 +36,7 @@ namespace SequenceEncoding
         public void DrawDiagram(List<string> binaryCup, ObservableCollection<Item> finishedDiagram)
         {
             TempX = 0;
-            TempY = 100;
-            
+            TempY = 100; 
 
             DrawAlongX(finishedDiagram, StepX - 4);
             DrawAlongY(finishedDiagram, StepY, VariableChangesToNegative);
@@ -50,28 +49,28 @@ namespace SequenceEncoding
                     DrawAlongY(finishedDiagram, StepY);
                     DrawAlongX(finishedDiagram, StepX - 4);
                     DrawAlongY(finishedDiagram, StepY, VariableChangesToNegative);
-                    DrawAlongX(finishedDiagram, StepX + 2);
+                    DrawAlongX(finishedDiagram, StepX + 4);
                 }
                 else if (binaryCup[i] == "0" && binaryCup[i - 1] == "1")
                 {
                     DrawAlongY(finishedDiagram, StepY);
                     DrawAlongX(finishedDiagram, StepX - 4);
                     DrawAlongY(finishedDiagram, StepY, VariableChangesToNegative);
-                    DrawAlongX(finishedDiagram, StepX + 2);
+                    DrawAlongX(finishedDiagram, StepX + 4);
                 }
                 else if (binaryCup[i] == "1" && binaryCup[i - 1] == "1")
                 {
                     DrawAlongY(finishedDiagram, StepY, VariableChangesToNegative);
                     DrawAlongX(finishedDiagram, StepX - 4);
                     DrawAlongY(finishedDiagram, StepY);
-                    DrawAlongX(finishedDiagram, StepX + 2);
+                    DrawAlongX(finishedDiagram, StepX + 4);
                 }
                 else if (binaryCup[i] == "1" && binaryCup[i - 1] == "0")
                 {
                     DrawAlongY(finishedDiagram, StepY, VariableChangesToNegative);
                     DrawAlongX(finishedDiagram, StepX - 4);
                     DrawAlongY(finishedDiagram, StepY);
-                    DrawAlongX(finishedDiagram, StepX + 2);
+                    DrawAlongX(finishedDiagram, StepX + 4);
                 }
             }          
         }
