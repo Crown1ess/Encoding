@@ -18,6 +18,7 @@ namespace SequenceEncoding
         NotReturnToZero notReturnToZero;
         BipolarAMI bipolarAMI;
         ManchesterCode manchester;
+        Potential2B1Q potentialTBOQ;
 
         private int canvasWidth;
 
@@ -112,7 +113,7 @@ namespace SequenceEncoding
             }
         }
 
-
+        //release potential 2b1q
 
         public List<string> BinaryCup;
 
@@ -179,6 +180,15 @@ namespace SequenceEncoding
                                 {
                                     CanvasWidth = manchester.TempX;
                                 }
+                            }else if(Selected2B1Q == "True")
+                            {
+                                potentialTBOQ = new Potential2B1Q();
+                                //Drawing potential 2B1Q diagram
+                                potentialTBOQ.DrawDiagram(BinaryCup, Drawing);
+                                if(potentialTBOQ.TempX > 350)
+                                {
+                                    CanvasWidth = potentialTBOQ.TempX;
+                                }
                             }
                             else
                             {
@@ -194,6 +204,7 @@ namespace SequenceEncoding
             BinaryCup = new List<string>();
             Drawing = new ObservableCollection<Item>();
         }
+        //get the binary code without space 
         private async Task getBinaryCup()
         {
             BinaryCup.Clear();
@@ -209,6 +220,7 @@ namespace SequenceEncoding
                 }
             });  
         }
+        //execute conversion from text to binary code
         private void makeConversion()
         {
             byte[] temp = Encoding.UTF8.GetBytes(decimalString);

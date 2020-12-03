@@ -6,33 +6,6 @@ namespace SequenceEncoding
 {
     public class BipolarPulseCoding : Diagram, IDrawable
     {
-        public void DrawAlongX(ObservableCollection<Item> insertInformation, int stepX)
-        {
-            insertInformation.Add(new Item
-            {
-                From = new System.Drawing.Point(TempX, TempY),
-                To = new System.Drawing.Point(TempX += stepX, TempY)
-
-            });
-        }
-        public void DrawAlongY(ObservableCollection<Item> insertInformation, int stepY) 
-        {
-            insertInformation.Add(new Item
-            {
-                From = new System.Drawing.Point(TempX, TempY),
-                To = new System.Drawing.Point(TempX, TempY += stepY)
-
-            });
-        }
-        public void DrawAlongY(ObservableCollection<Item> insertInformation, int stepY, int variableChangesToNegative)
-        {
-            insertInformation.Add(new Item
-            {
-                From = new System.Drawing.Point(TempX, TempY),
-                To = new System.Drawing.Point(TempX, TempY += (stepY*variableChangesToNegative))
-
-            });
-        }
         public void DrawDiagram(List<string> binaryCup, ObservableCollection<Item> finishedDiagram)
         {
             TempX = 0;
