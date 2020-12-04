@@ -40,8 +40,23 @@
                     <ItemsControl ItemsSource="{Binding Drawing}" Height="100">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <Canvas x:Name="Graphic" VerticalAlignment="Center" Height="200" Width="{Binding CanvasWidth}"
-                                Background="#328EA8"/>
+                                <Canvas x:Name="Graphic" VerticalAlignment="Center" Height="200" Width="{Binding CanvasWidth}">
+                                    <Canvas.Background>
+                                        <DrawingBrush TileMode="Tile" Viewport="-10,-10,20,20" 
+                                     ViewportUnits="Absolute">
+                                            <DrawingBrush.Drawing>
+                                                <GeometryDrawing>
+                                                    <GeometryDrawing.Geometry>
+                                                        <RectangleGeometry Rect="0,0,60,60"/>
+                                                    </GeometryDrawing.Geometry>
+                                                    <GeometryDrawing.Pen>
+                                                        <Pen Brush="DarkGray" Thickness="1"/>
+                                                    </GeometryDrawing.Pen>
+                                                </GeometryDrawing>
+                                            </DrawingBrush.Drawing>
+                                        </DrawingBrush>
+                                    </Canvas.Background>
+                                </Canvas>
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
