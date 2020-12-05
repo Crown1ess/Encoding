@@ -8,8 +8,8 @@ namespace SequenceEncoding
     {
         public void DrawDiagram(List<string> binaryCup, ObservableCollection<Item> finishedDiagram)
         {
-            TempX = 0;
-            TempY = 100; 
+            //TempX = 0;
+            //TempY = 90; 
 
             DrawAlongX(finishedDiagram, StepX - 4);
             DrawAlongY(finishedDiagram, StepY, VariableChangesToNegative);

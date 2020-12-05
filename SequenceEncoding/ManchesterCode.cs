@@ -9,21 +9,21 @@ namespace SequenceEncoding
     { 
         public void DrawDiagram(List<string> binaryCup, ObservableCollection<Item> finishedDiagram)
         {
-            TempX = 0;
-            TempY = 100;
+            //TempX = 0;
+            //TempY = 90;
 
-            DrawAlongX(finishedDiagram, StepX - 4);
+            DrawAlongX(finishedDiagram, StepX - 7);
             DrawAlongY(finishedDiagram, StepY);
-            DrawAlongX(finishedDiagram, StepX + 4);
+            DrawAlongX(finishedDiagram, StepX - 2);
 
             for(int i = 1; i < binaryCup.Count; i++)
             {
                 if(binaryCup[i] == "0" && binaryCup[i - 1] == "0")
                 {
                     DrawAlongY(finishedDiagram, StepY, VariableChangesToNegative);
-                    DrawAlongX(finishedDiagram, StepX - 4);
+                    DrawAlongX(finishedDiagram, StepX);
                     DrawAlongY(finishedDiagram, StepY);
-                    DrawAlongX(finishedDiagram, StepX + 4);
+                    DrawAlongX(finishedDiagram, StepX);
                 }
                 else if(binaryCup[i] == "1" && binaryCup[i - 1] == "1")
                 {                

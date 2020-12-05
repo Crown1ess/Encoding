@@ -7,11 +7,11 @@ namespace SequenceEncoding
 {
     public abstract class Diagram
     {
-        public int TempX { get; set; }
-        public int TempY { get; set; }
+        public int TempX { get; set; } = 0;
+        public int TempY { get; set; } = 110;
 
         public int StepX = 10;
-        public int StepY = 10;
+        public int StepY = 20;
 
         public const int VariableChangesToNegative = -1;
 

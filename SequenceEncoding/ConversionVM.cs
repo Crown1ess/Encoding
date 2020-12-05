@@ -31,7 +31,7 @@ namespace SequenceEncoding
                 OnPropertyChanged("CanvasWidth");
             }
         }
-
+       
         private string decimalString;
 
         public string DecimalString
@@ -113,9 +113,16 @@ namespace SequenceEncoding
             }
         }
 
-        //release potential 2b1q
-
-        public List<string> BinaryCup;
+        private List<string> binaryCup;
+        public List<string> BinaryCup
+        {
+            get { return binaryCup; }
+            set
+            {
+                binaryCup = value;
+                OnPropertyChanged("BinaryCup");
+            }
+        }
 
         private RelayCommand executeConversion;
         public RelayCommand ExecuteConversion

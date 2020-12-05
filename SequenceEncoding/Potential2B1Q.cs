@@ -10,25 +10,40 @@ namespace SequenceEncoding
         public void DrawDiagram(List<string> binaryCup, ObservableCollection<Item> finishedDiagram)
         {
             TempX = 0;
-            TempY = 105;
-
-            DrawAlongX(finishedDiagram, StepX * 4);
-
-            //определенные точки надо сделать, чтобы они по игреку перемещались только до нужной точки
-            //надо еще добавить проверку скольки был равен предыдущий tempY
-            //разделение по x делаем по 20, а по Y - 5
-            for(int i = 2; i < binaryCup.Count; i += 2)
+            //definition of entry level
+            if (binaryCup[1] == "0" && binaryCup[0] == "0")
+            {
+                TempY = 130;
+                DrawAlongX(finishedDiagram, (StepX - 2) * 4);
+            }
+            else if (binaryCup[1] == "0" && binaryCup[0] == "1")
+            {
+                TempY = 90;
+                DrawAlongX(finishedDiagram, (StepX - 2) * 4);
+            }
+            else if (binaryCup[1] == "1" && binaryCup[0] == "0")
+            {
+                TempY = 115;
+                DrawAlongX(finishedDiagram, (StepX - 2) * 4);
+            }
+            else if (binaryCup[1] == "1" && binaryCup[0] == "1")
+            {
+                TempY = 105;
+                DrawAlongX(finishedDiagram, (StepX - 2) * 4);
+            }
+            //drawing diagram
+            for(int i = 3; i < binaryCup.Count; i += 2)
             {
                 if (binaryCup[i] == "0" && binaryCup[i - 1] == "0")
                 {
-                    if(TempY == 105)
+                    if(TempY == 130)
+                    { 
+                        DrawAlongX(finishedDiagram, StepX * 4);
+                    }else if(TempY == 115)
                     {
                         DrawAlongY(finishedDiagram, StepY - 5);
                         DrawAlongX(finishedDiagram, StepX * 4);
-                    }else if(TempY == 110)
-                    {
-                        DrawAlongX(finishedDiagram, StepX * 4);
-                    }else if(TempY == 95)
+                    }else if(TempY == 105)
                     {
                         DrawAlongY(finishedDiagram, StepY + 5);
                         DrawAlongX(finishedDiagram, StepX * 4);
@@ -42,17 +57,17 @@ namespace SequenceEncoding
                 }
                 else if (binaryCup[i] == "1" && binaryCup[i - 1] == "1")
                 {
-                    if (TempY == 105)
+                    if (TempY == 115)
                     {
-                        DrawAlongY(finishedDiagram, StepY, VariableChangesToNegative);
+                        DrawAlongY(finishedDiagram, StepY - 10, VariableChangesToNegative);
                         DrawAlongX(finishedDiagram, StepX * 4);
                     }
-                    else if (TempY == 110)
+                    else if (TempY == 130)
                     {
                         DrawAlongY(finishedDiagram, StepY + 5, VariableChangesToNegative);
                         DrawAlongX(finishedDiagram, StepX * 4);
                     }
-                    else if (TempY == 95)
+                    else if (TempY == 105)
                     {
                         DrawAlongX(finishedDiagram, StepX * 4);
                     }
@@ -64,45 +79,45 @@ namespace SequenceEncoding
                 }
                 else if (binaryCup[i] == "1" && binaryCup[i - 1] == "0")
                 {
-                    if (TempY == 105)
+                    if (TempY == 115)
                     {
-                        DrawAlongY(finishedDiagram, StepY + 5, VariableChangesToNegative);
                         DrawAlongX(finishedDiagram, StepX * 4);
                     }
-                    else if (TempY == 110)
-                    {
-                        DrawAlongY(finishedDiagram, StepY * 2, VariableChangesToNegative);
-                        DrawAlongX(finishedDiagram, StepX * 4);
-                    }
-                    else if (TempY == 95)
+                    else if (TempY == 130)
                     {
                         DrawAlongY(finishedDiagram, StepY - 5, VariableChangesToNegative);
                         DrawAlongX(finishedDiagram, StepX * 4);
                     }
-                    else if (TempY == 90)
+                    else if (TempY == 105)
                     {
-                        DrawAlongX(finishedDiagram, StepX * 4);
-                    }
-                }
-                else if (binaryCup[i] == "0" && binaryCup[i - 1] == "1")
-                {
-                    if (TempY == 105)
-                    {
-                        DrawAlongX(finishedDiagram, StepX * 4);
-                    }
-                    else if (TempY == 110)
-                    {
-                        DrawAlongY(finishedDiagram, StepY - 5, VariableChangesToNegative);
-                        DrawAlongX(finishedDiagram, StepX * 4);
-                    }
-                    else if (TempY == 95)
-                    {
-                        DrawAlongY(finishedDiagram, StepY);
+                        DrawAlongY(finishedDiagram, StepY - 10);
                         DrawAlongX(finishedDiagram, StepX * 4);
                     }
                     else if (TempY == 90)
                     {
                         DrawAlongY(finishedDiagram, StepY + 5);
+                        DrawAlongX(finishedDiagram, StepX * 4);
+                    }
+                }
+                else if (binaryCup[i] == "0" && binaryCup[i - 1] == "1")
+                {
+                    if (TempY == 115)
+                    {
+                        DrawAlongY(finishedDiagram, StepY + 5, VariableChangesToNegative);
+                        DrawAlongX(finishedDiagram, StepX * 4);
+                    }
+                    else if (TempY == 130)
+                    {
+                        DrawAlongY(finishedDiagram, StepY * 2, VariableChangesToNegative);
+                        DrawAlongX(finishedDiagram, StepX * 4);
+                    }
+                    else if (TempY == 105)
+                    {
+                        DrawAlongY(finishedDiagram, StepY - 5, VariableChangesToNegative);
+                        DrawAlongX(finishedDiagram, StepX * 4);
+                    }
+                    else if (TempY == 90)
+                    {
                         DrawAlongX(finishedDiagram, StepX * 4);
                     }
                 }
