@@ -12,6 +12,7 @@ namespace SequenceEncoding
 {
     public class ConversionVM : INotifyPropertyChanged
     {
+        #region fields
         public ObservableCollection<Item> Drawing { get; private set; }
 
         BipolarPulseCoding bipolarPulseCoding;
@@ -20,6 +21,9 @@ namespace SequenceEncoding
         ManchesterCode manchester;
         Potential2B1Q potentialTBOQ;
 
+        #endregion
+
+        #region properties
         private int canvasWidth;
 
         public int CanvasWidth
@@ -112,6 +116,7 @@ namespace SequenceEncoding
                 OnPropertyChanged("Selected2B1Q");
             }
         }
+        
 
         private List<string> binaryCup;
         public List<string> BinaryCup
@@ -123,95 +128,106 @@ namespace SequenceEncoding
                 OnPropertyChanged("BinaryCup");
             }
         }
+        #endregion
+
+        #region commands
 
         private RelayCommand executeConversion;
-        public RelayCommand ExecuteConversion
-        {
-            get
-            {
-                return executeConversion ??
-                    (executeConversion = new RelayCommand(c =>
-                    {
-                        
-                        if (decimalString == null || decimalString == "")
-                        {
-                           
-                            MessageBox.Show("You didn't enter text to Decimal Code box. Please try again!", "Display", MessageBoxButton.OK);
-                        }
-                        else
-                        {
-                            makeConversion();
-                            getBinaryCup();
-                            Drawing.Clear();
+        public RelayCommand ExecuteConversion => executeConversion;
+        #endregion
 
-                            CanvasWidth = 350;
-                            //also add to drawing diagram with the startest binary code which inserted in binary code box and then it will be converted to decimal code
-                             
-                            if (selectedNRZ == "True")
-                            {
-                                notReturnToZero = new NotReturnToZero();
-                                //Drawing NRZ diagram
-                                notReturnToZero.DrawDiagram(BinaryCup, Drawing);
-                                if (notReturnToZero.TempX > 350)
-                                {
-                                    CanvasWidth = notReturnToZero.TempX;
-                                }   
-                            }
-                            else if (selectedBPC == "True")
-                            {
-                                bipolarPulseCoding = new BipolarPulseCoding();
-                                //Drawing BPC diagram
-                                bipolarPulseCoding.DrawDiagram(BinaryCup, Drawing);
-                                if (bipolarPulseCoding.TempX > 350)
-                                {
-                                    CanvasWidth = bipolarPulseCoding.TempX;
-                                }
-                                
-                            }
-                            else if(SelectedAMI == "True")
-                            {
-                                bipolarAMI = new BipolarAMI();
-                                //Drawing AMI diagram
-                                bipolarAMI.DrawDiagram(BinaryCup, Drawing);
-                                if(bipolarAMI.TempX > 350)
-                                {
-                                    CanvasWidth = bipolarAMI.TempX;
-                                }
-                            }
-                            else if(SelectedManchester == "True")
-                            {
-                                manchester = new ManchesterCode();
-                                //Drawing manchester diagram
-                                manchester.DrawDiagram(BinaryCup, Drawing);
-                                if(manchester.TempX > 350)
-                                {
-                                    CanvasWidth = manchester.TempX;
-                                }
-                            }else if(Selected2B1Q == "True")
-                            {
-                                potentialTBOQ = new Potential2B1Q();
-                                //Drawing potential 2B1Q diagram
-                                potentialTBOQ.DrawDiagram(BinaryCup, Drawing);
-                                if(potentialTBOQ.TempX > 350)
-                                {
-                                    CanvasWidth = potentialTBOQ.TempX;
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show("You didn't choose encoding variants, please try again", "Display", MessageBoxButton.OK);
-
-                            }
-                        }
-                    }));
-            }
-        }
+        #region constructor
         public ConversionVM()
         {            
             BinaryCup = new List<string>();
             Drawing = new ObservableCollection<Item>();
+            executeConversion = new RelayCommand(p => selectEncoding());
         }
-        //get the binary code without space 
+        #endregion
+
+        #region methods
+
+        /// <summary>
+        /// select encoding variants
+        /// </summary>
+        private void selectEncoding()
+        {
+            if (decimalString == null || decimalString == "")
+            {
+
+                MessageBox.Show("You didn't enter text to Decimal Code box. Please try again!", "Display", MessageBoxButton.OK);
+            }
+            else
+            {
+                makeConversion();
+                getBinaryCup();
+                Drawing.Clear();
+
+                CanvasWidth = 350;
+                //also add to drawing diagram with the startest binary code which inserted in binary code box and then it will be converted to decimal code
+
+                if (selectedNRZ == "True")
+                {
+                    notReturnToZero = new NotReturnToZero();
+                    //Drawing NRZ diagram
+                    notReturnToZero.DrawDiagram(BinaryCup, Drawing);
+                    if (notReturnToZero.TempX > 350)
+                    {
+                        CanvasWidth = notReturnToZero.TempX;
+                    }
+                }
+                else if (selectedBPC == "True")
+                {
+                    bipolarPulseCoding = new BipolarPulseCoding();
+                    //Drawing BPC diagram
+                    bipolarPulseCoding.DrawDiagram(BinaryCup, Drawing);
+                    if (bipolarPulseCoding.TempX > 350)
+                    {
+                        CanvasWidth = bipolarPulseCoding.TempX;
+                    }
+
+                }
+                else if (SelectedAMI == "True")
+                {
+                    bipolarAMI = new BipolarAMI();
+                    //Drawing AMI diagram
+                    bipolarAMI.DrawDiagram(BinaryCup, Drawing);
+                    if (bipolarAMI.TempX > 350)
+                    {
+                        CanvasWidth = bipolarAMI.TempX;
+                    }
+                }
+                else if (SelectedManchester == "True")
+                {
+                    manchester = new ManchesterCode();
+                    //Drawing manchester diagram
+                    manchester.DrawDiagram(BinaryCup, Drawing);
+                    if (manchester.TempX > 350)
+                    {
+                        CanvasWidth = manchester.TempX;
+                    }
+                }
+                else if (Selected2B1Q == "True")
+                {
+                    potentialTBOQ = new Potential2B1Q();
+                    //Drawing potential 2B1Q diagram
+                    potentialTBOQ.DrawDiagram(BinaryCup, Drawing);
+                    if (potentialTBOQ.TempX > 350)
+                    {
+                        CanvasWidth = potentialTBOQ.TempX;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("You didn't choose encoding variants, please try again", "Display", MessageBoxButton.OK);
+
+                }
+            }
+        }
+        /// <summary>
+        /// get the binary code without space
+        /// </summary>
+
         private async Task getBinaryCup()
         {
             BinaryCup.Clear();
@@ -227,7 +243,12 @@ namespace SequenceEncoding
                 }
             });  
         }
-        //execute conversion from text to binary code
+
+        
+        /// <summary>
+        /// execute conversion from text to binary code
+        /// </summary>
+
         private void makeConversion()
         {
             byte[] temp = Encoding.UTF8.GetBytes(decimalString);
@@ -239,6 +260,9 @@ namespace SequenceEncoding
             }
             BinaryString = stringBuilder.ToString();
         }
+        #endregion
+
+        #region PropertyChanged
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = null)
@@ -247,6 +271,7 @@ namespace SequenceEncoding
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
 
         }
+        #endregion
     }
-    
+
 }

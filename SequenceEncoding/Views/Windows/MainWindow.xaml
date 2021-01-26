@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SequenceEncoding"
         mc:Ignorable="d"
-        Title="Encoding" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Encoding" Height="450" Width="800" ResizeMode="NoResize"
+        Icon="pack://Application:,,,/Services/Images/image.ico"
+        WindowStartupLocation="CenterScreen">
+    
     <Grid>
 
         <Grid Height="450" Width="800">

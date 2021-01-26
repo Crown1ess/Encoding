@@ -7,10 +7,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MainWindow.xaml">
+    <Page Update="Views\Windows\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Style.xaml">
+    <Page Update="Services\Style\Style.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

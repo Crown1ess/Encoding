@@ -4,12 +4,22 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>image.ico</ApplicationIcon>
+    
     <StartupObject></StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Services\Images\image.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DocumentFormat.OpenXml" Version="2.11.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Services\Images\image.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

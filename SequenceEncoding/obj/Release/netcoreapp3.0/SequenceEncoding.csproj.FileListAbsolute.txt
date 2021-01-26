@@ -7,13 +7,10 @@ C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\bin\Release\netcor
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\bin\Release\netcoreapp3.0\DocumentFormat.OpenXml.dll
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\bin\Release\netcoreapp3.0\System.IO.Packaging.dll
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\SequenceEncoding.csprojAssemblyReference.cache
-C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\MainWindow.g.cs
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\App.g.cs
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\SequenceEncoding_MarkupCompile.cache
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\SequenceEncoding_MarkupCompile.lref
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\App.baml
-C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\MainWindow.baml
-C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\Style.baml
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\SequenceEncoding.g.resources
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\SequenceEncoding.AssemblyInfoInputs.cache
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\SequenceEncoding.AssemblyInfo.cs
@@ -22,3 +19,6 @@ C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcor
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\SequenceEncoding.dll
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\SequenceEncoding.pdb
 C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\SequenceEncoding.genruntimeconfig.cache
+C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\Views\Windows\MainWindow.g.cs
+C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\Services\Style\Style.baml
+C:\Users\davae\source\repos\SequenceEncoding\SequenceEncoding\obj\Release\netcoreapp3.0\Views\Windows\MainWindow.baml
